@@ -49,7 +49,7 @@ user_data_dict = {}
 # Инициализация Google Sheets
 def init_sheet(sheet_type="TR"):
     scope = ['https://www.googleapis.com/auth/spreadsheets', 'https://www.googleapis.com/auth/drive']
-    creds = Credentials.from_service_account_file("gspread_key.json", scopes=scope)
+    creds = Credentials.from_service_account_file("gspread_key.json", scopes=scopes)
     client = gspread.authorize(creds)
     sheet = client.open(SPREADSHEET_NAME)
     return sheet.worksheet(sheet_type)
