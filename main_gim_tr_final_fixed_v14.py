@@ -1,5 +1,6 @@
 
 import logging
+from google.oauth2.service_account import Credentials
 from telegram import Update
 from telegram.ext import (
     ApplicationBuilder,
@@ -10,7 +11,6 @@ from telegram.ext import (
     ContextTypes,
 )
 import gspread
-from oauth2client.service_account import ServiceAccountCredentials
 from datetime import datetime
 
 # Настройки
