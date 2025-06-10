@@ -10,7 +10,7 @@ from telegram.ext import (
     ContextTypes,
 )
 import gspread
-from oauth2client.service_account import ServiceAccountCredentials
+from google.oauth2.service_account import Credentials
 from datetime import datetime
 
 # Настройки
@@ -48,8 +48,8 @@ user_data_dict = {}
 
 # Инициализация Google Sheets
 def init_sheet(sheet_type="TR"):
-    scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
-    creds = ServiceAccountCredentials.from_json_keyfile_name("/etc/secrets/gspread_key.json", scope)
+    scope = ['https://www.googleapis.com/auth/spreadsheets', 'https://www.googleapis.com/auth/drive']
+    creds = Credentials.from_service_account_file("gspread_key.json", scopes=scope)
     client = gspread.authorize(creds)
     sheet = client.open(SPREADSHEET_NAME)
     return sheet.worksheet(sheet_type)
