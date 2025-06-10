@@ -10,7 +10,7 @@ from telegram.ext import (
     ContextTypes,
 )
 import gspread
-from google.oauth2.service_account import Credentials
+from oauth2client.service_account import ServiceAccountCredentials
 from datetime import datetime
 
 # Настройки
